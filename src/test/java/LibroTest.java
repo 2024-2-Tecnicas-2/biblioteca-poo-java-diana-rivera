@@ -1,19 +1,24 @@
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
+import com.mycompany.biblioteca.java.Libro;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class LibroTest {
-    // TODO Adiciona tus pruebas unitarias aquí.
-    // Los métodos deben estar anotados con la anotación @Test. Por ejemplo:
-    //
-//    @Test
-//    public void testMultiplicarPositivos() {
-//        int valorEsperado = 15;
-//        CuentaBancaria miCuenta = new CuentaBancaria();
-//        int valorActual = miCuenta.multiplicar(3, 5);
-//        assertEquals(valorEsperado, valorActual);
-//    }
+    private Libro libro;
+
+    public void setUp() {
+        libro = new Libro("El Quijote", 1605, "Miguel de Cervantes", 500);
+    }
+
+    @Test
+    public void testConstructor() {
+        assertEquals("El Quijote", libro.getTitulo());
+        assertEquals(1605, libro.getAñoPublicacion());
+        assertEquals("Miguel de Cervantes", libro.getAutor());
+        assertEquals(500, libro.getNumPaginas());
+    }
+
+    @Test
+    public void testMostrarInfo() {
+        libro.mostrarInfo();
+    }
 }
